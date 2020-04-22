@@ -28,6 +28,9 @@ TESTPARALLELISM := 4
 # We set the PLUGIN_VERSION to be the same as the version we use when building
 # the provider (e.g. x.y.z-dev-... instead of x.y.zdev...)
 build:: patch tfgen provider
+	cd sdk && for LANGUAGE in "nodejs" "python" "go" "dotnet" ; do \
+		rm -fr $$LANGUAGE ; \
+	done
 	cd provider && for LANGUAGE in "nodejs" "python" "go" "dotnet" ; do \
 		$(TFGEN) $$LANGUAGE --overlays overlays/$$LANGUAGE/ --out ../${PACKDIR}/$$LANGUAGE/ || exit 3 ; \
 	done
