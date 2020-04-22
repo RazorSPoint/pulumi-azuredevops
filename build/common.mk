@@ -96,9 +96,9 @@ SHELL       := /bin/bash
 STEP_MESSAGE = @echo -e "\033[0;32m$(shell echo '$@' | tr a-z A-Z | tr '_' ' '):\033[0m"
 
 # Our install targets place items item into $PULUMI_ROOT, if it's
-# unset, default to /opt/pulumi.
+# unset, default to ${HOME}/.pulumi
 ifeq ($(PULUMI_ROOT),)
-	PULUMI_ROOT:=/opt/pulumi
+	PULUMI_ROOT:=${HOME}/.pulumi
 endif
 
 PULUMI_BIN          := $(PULUMI_ROOT)/bin
