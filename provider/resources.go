@@ -101,13 +101,13 @@ func Provider() tfbridge.ProviderInfo {
 			"org_service_url": {
 				Default: &tfbridge.DefaultInfo{
 					Value:   "",
-					EnvVars: []string{"AZDO_ORG_SERVICE_URL", "AZDO_ORG_SERVICE_URL"},
+					EnvVars: []string{"AZDO_ORG_SERVICE_URL"},
 				},
 			},
 			"personal_access_token": {
 				Default: &tfbridge.DefaultInfo{
 					Value:   "",
-					EnvVars: []string{"AZDO_PERSONAL_ACCESS_TOKEN", "AZDO_PERSONAL_ACCESS_TOKEN"},
+					EnvVars: []string{"AZDO_PERSONAL_ACCESS_TOKEN"},
 				},
 			},
 		},
