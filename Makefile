@@ -42,7 +42,7 @@ build:: patch tfgen provider
 	cd ${PACKDIR}/python/ && \
 		cp ../../README.md . && \
 		$(PYTHON) setup.py clean --all 2>/dev/null && \
-		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
+		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && cp -R ../python.bin ./bin && rm -rf ../python.bin && \
 		sed -i.bak -e "s/\$${VERSION}/$(PYPI_VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./bin/setup.py && \
 		rm ./bin/setup.py.bak && \
 		cd ./bin && $(PYTHON) setup.py build sdist
@@ -51,7 +51,7 @@ build:: patch tfgen provider
   		dotnet build /p:Version=${DOTNET_VERSION}
 patch::
 	scripts/patch-provider.sh
-		
+
 tfgen::
 	cd provider && go install -mod=${TF_MOD} -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${TFGEN}
 
