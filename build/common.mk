@@ -129,7 +129,7 @@ ensure:: $(SUB_PROJECTS:%=%_ensure)
 endif
 
 # `core` is like `default` except it does not build sub projects.
-core:: build lint install test_fast
+core:: build install test_fast
 
 # If $(PROJECT_NAME) has been set, have our default and all targets
 # print a nice banner.
@@ -144,7 +144,7 @@ all::
 	@echo -e "\033[1;37m$(shell echo '$(PROJECT_NAME)' | sed -e 's/./=/g')\033[1;37m"
 endif
 
-default:: build install lint test_fast
+default:: build install test_fast
 all:: build install lint test_all
 
 ensure::
