@@ -1,11 +1,15 @@
 # Azure DevOps Resource Provider
 
-The Azure DevOps resource provider for Pulumi lets you manage Azure DevOps resources in your cloud programs. To use
-this package, please [install the Pulumi CLI first](https://pulumi.io/).
+The Azure DevOps resource provider for Pulumi lets you manage Azure DevOps
+resources in your cloud programs. To use this package, please [install the
+Pulumi CLI first](https://pulumi.io/).
 
 ## Installing
 
-This package is available in many languages in the standard packaging formats.
+> Currently the provider is not distributed via the Pulumi infrastructure, thus
+> you've to build and install it locally.
+>  
+> Please refer to the corresponding [document](BuildLocally.md) for accomplish this.
 
 ### Node.js (Java/TypeScript)
 
