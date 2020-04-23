@@ -62,8 +62,8 @@ provider:: generate_schema
 	cd provider && go generate cmd/${PROVIDER}/main.go
 	cd provider && go install -mod=${TF_MOD} -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${PROVIDER}
 
-lint::
-	#golangci-lint run
+lint:: patch
+	cd provider && golangci-lint --modules-download-mode=${TF_MOD} run
 
 install:: tfgen provider
 	[ ! -e "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" ] || rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
