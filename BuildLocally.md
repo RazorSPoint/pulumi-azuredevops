@@ -86,7 +86,17 @@
    $ sudo -E apt install apt-transport-https
    $ sudo -E apt update
    $ sudo -E apt install dotnet-sdk-3.1
-   ```   
+   ```
+
+8. Install `golangci-lint`
+
+   https://github.com/golangci/golangci-lint
+
+   Linux:
+
+   ```sh
+   $ curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.25.0
+   ```
 
 ## Build and Install
 
