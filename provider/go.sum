@@ -564,8 +564,8 @@ github.com/tencentyun/cos-go-sdk-v5 v0.0.0-20190808065407-f07404cefc8c/go.mod h1
 github.com/terraform-providers/terraform-provider-openstack v1.15.0/go.mod h1:2aQ6n/BtChAl1y2S60vebhyJyZXBsuAI5G4+lHrT1Ew=
 github.com/texttheater/golang-levenshtein v0.0.0-20191208221605-eb6844b05fc6 h1:9VTskZOIRf2vKF3UL8TuWElry5pgUpV1tFSe/e/0m/E=
 github.com/texttheater/golang-levenshtein v0.0.0-20191208221605-eb6844b05fc6/go.mod h1:XDKHRm5ThF8YJjx001LtgelzsoaEcvnA7lVWz9EeX3g=
-github.com/tiwood/terraform-provider-azuredevops v1.0.0-build h1:5YNgTK7KQUE0DGi9wMt8ximUjc58IGKtdiOwW3DbRwg=
-github.com/tiwood/terraform-provider-azuredevops v1.0.0-build/go.mod h1:zliIFtSWXwdKuRI3NISA1hxVwX1BLRyUDnk5ipTEem0=
+github.com/tiwood/terraform-provider-azuredevops v1.2.0-build h1:V849h+bT/54gtdJkRgxT7A6VnhT9oIKd8D2LjlCgJxo=
+github.com/tiwood/terraform-provider-azuredevops v1.2.0-build/go.mod h1:zliIFtSWXwdKuRI3NISA1hxVwX1BLRyUDnk5ipTEem0=
 github.com/tmc/grpc-websocket-proxy v0.0.0-20171017195756-830351dc03c6/go.mod h1:ncp9v5uamzpCO7NfCPTXjqaC+bZgJeR0sMTm6dMHP7U=
 github.com/tmc/grpc-websocket-proxy v0.0.0-20190109142713-0ad062ec5ee5/go.mod h1:ncp9v5uamzpCO7NfCPTXjqaC+bZgJeR0sMTm6dMHP7U=
 github.com/uber/jaeger-client-go v2.22.1+incompatible h1:NHcubEkVbahf9t3p75TOCR83gdUHXjRJvjoBh1yACsM=

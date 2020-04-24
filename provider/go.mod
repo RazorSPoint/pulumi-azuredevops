@@ -4,7 +4,7 @@ go 1.13
 
 replace github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.4.3+incompatible
 
-replace github.com/microsoft/terraform-provider-azuredevops => github.com/tiwood/terraform-provider-azuredevops v1.0.0-build
+replace github.com/microsoft/terraform-provider-azuredevops => github.com/tiwood/terraform-provider-azuredevops v1.2.0-build
 
 require (
 	github.com/hashicorp/terraform-plugin-sdk v1.8.0
