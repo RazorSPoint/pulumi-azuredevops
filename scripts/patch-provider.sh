@@ -9,8 +9,3 @@ go mod vendor || exit 1
 
 cd vendor/github.com/microsoft/azure-devops-go-api/ || exit 1
 patch --quiet -p1 -i $patch_dir/azure-devops-go-api-rune-error.patch || exit 1
-
-cd $base_dir || exit 1
-cd vendor/github.com/hashicorp/terraform-plugin-sdk/ || exit 1
-patch --quiet -p1 -i $patch_dir/terraform-plugin-sdk-requiredwith.patch || exit 1
-cd $base_dir || exit 1
