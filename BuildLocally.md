@@ -18,14 +18,27 @@
    $ sudo -E apt-get update
    $ sudo -E apt-get install golang-go
    ```
-   
+
+   Create a `$HOME/go/bin` directory add the directory path to your `PATH` variable.
+
+   ```sh
+   $ mkdir ~/go/bin
+   $ export PATH=$PATH:~/go/bin
+   ```
+
 2. [Install `Pulumi`](https://www.pulumi.com/docs/get-started/azure/install-pulumi/)
 
-    Linux:
+   Linux:
 
-    ```sh
-    $ curl -fsSL https://get.pulumi.com | sh
-    ```
+   ```sh
+   $ curl -fsSL https://get.pulumi.com | sh
+   ```
+
+   Add the `$HOME/.pulumi/bin` directory to your `PATH` variable
+
+   ```sh
+   $ export PATH=$PATH:~/.pulumi/bin
+   ```
 
 3. Install `tf2pulumi` 
 
@@ -100,12 +113,22 @@
 
 ## Build and Install
 
-To build and install th eprovider locally
+To build and install theprovider locally
 
 1. Clone repository https://github.com/tmeckel/pulumi-azuredevops
 
-2. Run `make build`
+2. Run `make ensure`. 
 
-3. To perform a local install do `make install`
+   > **Remark:**  
+   > Running `make ensure` is only required if
+   >
+   > * go packages have been updated,
+   > * the project has been cleaned (`make build_clean`) or
+   > * if you compile for the first time.
+   >
+
+3. Run `make build`
+
+4. To perform a local install do `make install`
 
 Samples for testing your installation can be found in in the [examples repository](https://github.com/tmeckel/pulumi-azuredevops-samples).
