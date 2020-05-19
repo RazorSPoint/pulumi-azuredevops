@@ -34,6 +34,7 @@ build_languages:: build_go build_nodejs build_python build_dotnet
 
 build_clean::
 	$(call STEP_MESSAGE)
+	find . -name vendor -type d | xargs rm -rf
 	cd sdk && for LANGUAGE in "nodejs" "python" "go" "dotnet" ; do \
 		rm -fr $$LANGUAGE ; \
 	done
