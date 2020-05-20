@@ -109,6 +109,8 @@ GO_TEST_FAST = go test -short -v -count=1 -cover -timeout 2h -parallel ${TESTPAR
 GO_TEST = go test -v -count=1 -cover -timeout 2h -parallel ${TESTPARALLELISM}
 GOPROXY = 'https://proxy.golang.org'
 
+WSL1 = $(shell [ "$$(uname -r | grep -oE '4\.4\.[0-9]-[0-9]+-Microsoft')" != "" ] && echo "true" || echo "false")
+
 .PHONY: default all ensure only_build only_test build lint install test_all core
 
 # ensure that `default` is the target that is run when no arguments are passed to make
@@ -149,6 +151,15 @@ all:: build install lint test_all
 
 ensure::
 	$(call STEP_MESSAGE)
+ifeq ($(WSL1), true)
+ifeq ($(NOPROXY), true)
+	@echo "cd provider && GO111MODULE=on go mod tidy"; cd provider && GO111MODULE=on go mod tidy
+	@echo "cd provider && GO111MODULE=on go mod vendor"; cd provider && GO111MODULE=on go mod vendor
+else
+	@echo "cd provider && GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy"; cd provider && GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy
+	@echo "cd provider && GO111MODULE=on GOPROXY=$(GOPROXY) go mod vendor"; cd provider && GO111MODULE=on GOPROXY=$(GOPROXY) go mod vendor
+endif
+else
 ifeq ($(NOPROXY), true)
 	@echo "cd provider && GO111MODULE=on go mod tidy"; cd provider && GO111MODULE=on go mod tidy
 	@echo "cd provider && GO111MODULE=on go mod download"; cd provider && GO111MODULE=on go mod download
@@ -165,6 +176,7 @@ else
 	@echo "cd examples && GO111MODULE=on GOPROXY=$(GOPROXY) go mod download"; cd examples && GO111MODULE=on GOPROXY=$(GOPROXY) go mod download
 	@echo "cd scripts && GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy"; cd scripts && GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy
 	@echo "cd scripts && GO111MODULE=on GOPROXY=$(GOPROXY) go mod download"; cd scripts && GO111MODULE=on GOPROXY=$(GOPROXY) go mod download
+endif
 endif
 	@if [ -e 'package.json' ]; then echo "yarn install"; yarn install; fi
 
