@@ -114,7 +114,7 @@ install_python:: build_python
 
 install_dotnet:: build_dotnet
 	$(call STEP_MESSAGE)
-	[ -d "$(PULUMI_NUGET)" ] || mkdir "$(PULUMI_NUGET)"
+	[ -d "$(PULUMI_NUGET)" ] || mkdir -p "$(PULUMI_NUGET)"
 	[ ! -e "$(PULUMI_NUGET)" ] || find "$(PULUMI_NUGET)" -type f -iname "*${PACK}*" -exec rm {} \;
 	find ${PACKDIR}/dotnet -name '*.nupkg' -exec cp -p {} ${PULUMI_NUGET} \;
 
