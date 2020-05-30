@@ -35,10 +35,13 @@ To use from Go, use `go get` to grab the latest version of the library
 
 ## Configuration
 
-The following configuration points are available:
+In the Pulumi yaml stack file (e.g. Pulimi.dev.yaml) you have to configigure the following configuration points:
 
-* azuredevops:orgServiceUrl - (Required) 
-* azuredevops:personalAccessToken - (Required) 
+```yaml
+config:
+  azuredevops:orgServiceUrl: https://dev.azure.com/MyAzDOrg (required)
+  azuredevops:personalAccessToken: mytokentoMyAzDOrg (required)
+```
 
 ## Reference
 
