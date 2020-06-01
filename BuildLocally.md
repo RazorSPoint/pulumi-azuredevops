@@ -3,9 +3,10 @@
 **Important notice:**
 
 > The build infrastructure is based on tools available on *nix-sh operating
-> systems like MacOS or Linux. Building under Windows is not supported. The
-> provider can be build, installed and used in the Windows Subsytems for Linux
-> (WSL) though.
+> systems like MacOS or Linux. _Building on Windows is not supported._
+>
+> The provider can be build, installed and used in the Windows Subsytems for
+> Linux (WSL) though.
 
 ## Prerequisites
 
@@ -28,6 +29,11 @@
    $ export PATH=$PATH:~/go/bin
    ```
 
+   > **Note**
+   > So that the `$HOME/go/bin` directory is available in the environment
+   > variable `$PATH` at every start of a shell, it makes sense to add the
+   > shown export command to the file `$HOME/.bashrc` and `$HOME/.profile`.
+
 2. [Install `Pulumi`](https://www.pulumi.com/docs/get-started/azure/install-pulumi/)
 
    Linux:
@@ -42,12 +48,22 @@
    $ export PATH=$PATH:~/.pulumi/bin
    ```
 
+<<<<<<< HEAD
 3. Install `tf2pulumi`
+=======
+   > **Note**
+   > So that the `$HOME/.pulumi/bin` directory is available in the environment
+   > variable `$PATH` at every start of a shell, it makes sense to add the
+   > shown export command to the file `$HOME/.bashrc` and `$HOME/.profile`.
+
+3. Install `tf2pulumi`
+>>>>>>> v2
 
    https://github.com/pulumi/tf2pulumi
 
-   >Ensure that you install the binary in a directory that is already in your `PATH`
-   >variable and make sure that the binary is executable.
+   > **Note:**
+   > Ensure that you install the binary in a directory that is already in your `PATH`
+   > variable and make sure that the binary is executable.
 
    Linux:
 
