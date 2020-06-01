@@ -9,14 +9,16 @@
 
 ## Prerequisites
 
+
+
 1. Install `Go`
 
    Linux:
 
    ```sh
-   $ sudo -E add-apt-repository ppa:longsleep/golang-backports
+   $ sudo -E add-apt-repository ppa:longsleep/golang-backports -y
    $ sudo -E apt-get update
-   $ sudo -E apt-get install golang-go
+   $ sudo -E apt-get install golang-go -y
    ```
 
    Create a `$HOME/go/bin` directory add the directory path to your `PATH` variable.
@@ -40,7 +42,7 @@
    $ export PATH=$PATH:~/.pulumi/bin
    ```
 
-3. Install `tf2pulumi` 
+3. Install `tf2pulumi`
 
    https://github.com/pulumi/tf2pulumi
 
@@ -48,6 +50,12 @@
    >variable and make sure that the binary is executable.
 
    Linux:
+
+   install jq, which is needed for the step after.
+
+   ```sh
+   $ sudo apt install jq -y
+   ```
 
    ```sh
    $ curl -s "https://api.github.com/repos/pulumi/tf2pulumi/releases" \
@@ -62,6 +70,7 @@
 
    ```sh
    $ curl -sL https://deb.nodesource.com/setup_12.x | sudo bash
+   $ sudo apt-get install nodejs -y
    ```
 
 5. Install `yarn`
@@ -81,7 +90,7 @@
    Linux:
 
    ```sh
-   $ sudo -E apt install python3-pip
+   $ sudo -E apt install python3-pip -y
    ```
 
 7. Install Dotnet
@@ -96,9 +105,9 @@
    $ rm packages-microsoft-prod.deb
    $ sudo -E add-apt-repository universe
    $ sudo -E apt update
-   $ sudo -E apt install apt-transport-https
+   $ sudo -E apt install apt-transport-https -y
    $ sudo -E apt update
-   $ sudo -E apt install dotnet-sdk-3.1
+   $ sudo -E apt install dotnet-sdk-3.1 -y
    ```
 
 8. Install `golangci-lint`
@@ -117,9 +126,9 @@ To build and install theprovider locally
 
 1. Clone repository https://github.com/tmeckel/pulumi-azuredevops
 
-2. Run `make ensure`. 
+2. Run `make ensure`.
 
-   > **Remark:**  
+   > **Remark:**
    > Running `make ensure` is only required if
    >
    > * go packages have been updated,
