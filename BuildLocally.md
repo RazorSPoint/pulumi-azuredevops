@@ -10,7 +10,8 @@
 
 ## Prerequisites
 
-
+ > **Note**
+ > When installing packages it is assumed that the installation is uninterrupted as possible, thus flags for pre-confirming the installation are used.
 
 1. Install `Go`
 
@@ -157,3 +158,33 @@ To build and install theprovider locally
 4. To perform a local install do `make install`
 
 Samples for testing your installation can be found in in the [examples repository](https://github.com/tmeckel/pulumi-azuredevops-samples).
+
+## Tips & Troubleshooting
+
+1. Beware that when starting a new shell that the PATH variable does not have all of the needed path included. Check for that.
+
+2. Windows user can run the build on Windows with WSL. You can [activate it on Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10) with
+```powershell
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+```
+
+3. When working with Windows WSL or VSCode remote development extension it sometimes happens that non root permissions are not enough to use `make build` or `make install` you can it in a sudo shell. Make sure to start the shell and use the same PATH variable
+```sh
+sudo -E sudo env "PATH=$PATH" sh
+```
+
+4. During linking the package **after** `make install` finishing successfully and using the compiled nodejs in your project locally the following error could appear
+
+    ```sh
+    ~/my/project/dir$ yarn link @pulumi/azuredevops
+    yarn link v1.22.4
+    error No registered package found called "@pulumi/azuredevops".
+    info Visit https://yarnpkg.com/en/docs/cli/link for documentation about this command.
+    ```
+
+   This means that the package is maybe properly not properly linked to use with yarn. In this case run the following script.
+
+   ```sh
+   $ cd $HOME/.pulumi/node_modules/@pulumi/azuredevops
+   $ yarn link
+   ```
