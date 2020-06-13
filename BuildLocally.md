@@ -49,16 +49,12 @@
    $ export PATH=$PATH:~/.pulumi/bin
    ```
 
-<<<<<<< HEAD
 3. Install `tf2pulumi`
 =======
    > **Note**
    > So that the `$HOME/.pulumi/bin` directory is available in the environment
    > variable `$PATH` at every start of a shell, it makes sense to add the
    > shown export command to the file `$HOME/.bashrc` and `$HOME/.profile`.
-
-3. Install `tf2pulumi`
->>>>>>> v2
 
    https://github.com/pulumi/tf2pulumi
 
@@ -161,19 +157,20 @@ Samples for testing your installation can be found in in the [examples repositor
 
 ## Tips & Troubleshooting
 
-1. Beware that when starting a new shell that the PATH variable does not have all of the needed path included. Check for that.
+1. Beware that when starting a new shell, the PATH variable does not include all of the needed path items. As mentioned, extend $HOME/.profile and $HOME/.bashrc and add the required path items to the $PATH variable.
 
 2. Windows user can run the build on Windows with WSL. You can [activate it on Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10) with
 ```powershell
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
+Currently, this only activates WSL version 1. If you want to use WSL2 you have to have at least install _Windows 10 Insider Preview build 18917_.
 
 3. When working with Windows WSL or VSCode remote development extension it sometimes happens that non root permissions are not enough to use `make build` or `make install` you can it in a sudo shell. Make sure to start the shell and use the same PATH variable
 ```sh
 sudo -E sudo env "PATH=$PATH" sh
 ```
 
-4. During linking the package **after** `make install` finishing successfully and using the compiled nodejs in your project locally the following error could appear
+4. After having installed the provider locally and using the NodeJS package `@pulumi/azuredevops` in your project, the following error could appear:
 
     ```sh
     ~/my/project/dir$ yarn link @pulumi/azuredevops
@@ -182,7 +179,7 @@ sudo -E sudo env "PATH=$PATH" sh
     info Visit https://yarnpkg.com/en/docs/cli/link for documentation about this command.
     ```
 
-   This means that the package is maybe properly not properly linked to use with yarn. In this case run the following script.
+  This means that the package is not properly linked to use with yarn. In this case run the following script.
 
    ```sh
    $ cd $HOME/.pulumi/node_modules/@pulumi/azuredevops

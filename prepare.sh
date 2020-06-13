@@ -50,5 +50,3 @@ sudo -E apt install dotnet-sdk-3.1 -y
  curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.25.0
 
  make ensure
- make build
- make install
