@@ -8,7 +8,7 @@ Pulumi CLI first](https://pulumi.io/).
 
 > Currently the provider is not distributed via the Pulumi infrastructure, thus
 > you've to build and install it locally.
->  
+>
 > Please refer to the corresponding [document](BuildLocally.md) for accomplish this.
 
 ### Node.js (Java/TypeScript)
@@ -35,12 +35,11 @@ To use from Go, use `go get` to grab the latest version of the library
 
 ## Configuration
 
-In the Pulumi yaml stack file (e.g. Pulimi.dev.yaml) you have to configigure the following configuration points:
+To make sure that pulumi knows the organization and has access to it you need to configure the following configuration variables with `pulumi config set <key> [value]`:
 
-```yaml
-config:
-  azuredevops:orgServiceUrl: https://dev.azure.com/MyAzDOrg (required)
-  azuredevops:personalAccessToken: mytokentoMyAzDOrg (required)
+```sh
+  $ pulumi config set azuredevops:orgServiceUrl https://dev.azure.com/MyAzDOrg
+  $ pulumi config set azuredevops:personalAccessToken: mytokentoMyAzDOrg
 ```
 
 ## Reference
